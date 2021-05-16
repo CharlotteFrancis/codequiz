@@ -1,0 +1,17 @@
+.centered{
+    text-align: center;
+    margin: auto;
+}
+.my-timer{
+    margin-left: 1%;
+}
+.myhr{
+    width: 80%;
+    margin-top: 2%;
+}
+.longlong{
+    width: 80%
+}
+.collection-item{
+    color:rgb(194, 69, 69) !important;
+}
