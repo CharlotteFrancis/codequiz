@@ -29,10 +29,10 @@ THEN I can save my initials and score
 
 The following images demonstrates the application functionality:
 Launch Screen:
-![launch screen](./Assets/Screenshots/Launch-Screen.png)
+![launch screen](./assets/Screenshots/Launch-Screen.png)
 Quiz Screen:
-![quiz screen](./Assets/Screenshots/Mid-Quiz.png)
+![quiz screen](./assets/Screenshots/Mid-Quiz.png)
 End Screen:
-![end screen](./Assets/Screenshots/End-Screen.png)
+![end screen](./assets/Screenshots/End-Screen.png)
 Highscore table Screen
-![highscores screen](./Assets/Screenshots/Highscores-Screen.png)
+![highscores screen](./assets/Screenshots/Highscores-Screen.png)
