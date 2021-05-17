@@ -1,6 +1,6 @@
 # CODE QUIZ
 
-A timed quiz on JavaScript coding syntax that has a dynamically updated UI based on user input. The quiz was created in order to match the user story and acceptance criteria below. Some of the questions on the quiz were taken from the W3 schools JavaScript test. 
+A timed quiz on JavaScript coding syntax that has a dynamically updated UI based on user input. This quiz was written in JavaScript and stores highscores through local memory to preserve highscores between visits. The quiz was created in order to match the user story and acceptance criteria below. Some of the questions on the quiz were taken from the W3 schools JavaScript test. 
 
 I decided to use the Materialize style library over Bootstrap for this project so that I could practice more with other style libraries. In the future if I have more projects that involve forms and user typed input I will use bootstrap as their input elements are easier to use in my opinion.
 
