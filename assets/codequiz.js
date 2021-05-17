@@ -32,6 +32,31 @@ let questions = [
         question: 'Is JavaScript a case-sensitive language?',
         choice: ['yes','no','sometimes','maybe'],
         answer: 'yes'
+    },
+    {
+        question: 'How do you declare a for loop?',
+        choice: ['for i = 1 to 5','for (i = 0; i <= 5; i++)','for (i <= 5; i++)','for i = 1 to 5'],
+        answer: 'for (i = 0; i <= 5; i++)'
+    },
+    {
+        question: 'How do you round the number 7.25, to the nearest integer?',
+        choice: ['round(7.25)','Math.rnd(7.25)','Math.round(7.25)','rnd(7.25)'],
+        answer: 'Math.round(7.25)'
+    },
+    {
+        question: "How can you detect the client's browser name?",
+        choice: ['browser.name','client.navName','client.name','navigator.appName'],
+        answer: 'navigator.appName'
+    },
+    {
+        question: 'How do you declare a JavaScript variable?',
+        choice: ['let variable','v variable','variable variable','lot variable'],
+        answer: 'let variable'
+    },
+    {
+        question: 'what operator is used to do an exact comparison',
+        choice: ['==','===','!=','?='],
+        answer: '==='
     }
 ]
 //question appears
@@ -80,23 +105,43 @@ let endScreen = _ =>{
 
 //show scores
 let showScores = _ =>{
+    document.getElementById('highscores').innerHTML = '' //prevent multiple tables
     document.getElementById('question').innerHTML = '' //reset question section
     document.getElementById('endscreen').innerHTML = '' //reset end section
     //display score table, retrieve from  local memory
     let scores = JSON.parse(localStorage.getItem('scores')) || []
+    //define table head
+    let table = document.createElement('table')
+    table.innerHTML = `
+        <thead>
+          <tr>
+              <th>Initials</th>
+              <th>Score</th>
+          </tr>
+        </thead>
+    `
+    //define table body
+    let tableBody = document.createElement('tbody')
+    
+    //populate table body & iterate over scores array
+    for(let x = 0; x < scores.length; x++){
+        tableBody.innerHTML += `
+        <tr>
+            <td>${scores[x].initials}</td>
+            <td>${scores[x].score}</td>
+        </tr>
+        `
+    }
+    //moosh head and body
+    table.append(tableBody)
+    console.log(table) //table log log log
+    //append
+    document.getElementById('highscores').append(table)
 }
 
 //sort scores in array
 let sortScores = (a, b) => {
-    if(a[1] === b[1]){
-        return 0; //score equal
-    }else{
-        if(a[1] < b[1]){
-            return -1 
-        }else{
-            return 1
-        }
-    }
+    return(b.score - a.score) 
 }
 
 //submit scores
@@ -115,6 +160,7 @@ let submitScores = _ =>{
 }
 //start quiz
 document.getElementById('letsgo').addEventListener('click', _ => {
+    document.getElementById('highscores').innerHTML = '' //removes highscore table if it's open
     document.getElementById('letsgo').remove()
     console.log('lets go pressed')
     document.getElementById('timer').innerHTML = `Time Left: ${time}`
