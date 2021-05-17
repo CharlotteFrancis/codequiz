@@ -1,5 +1,4 @@
 //variable declaration
-
 let score = 0;
 let count = 0;
 
@@ -35,7 +34,6 @@ let questions = [
         answer: 'yes'
     }
 ]
-
 //question appears
 let nextQuestion = _ =>{
     //reset question section
@@ -54,6 +52,7 @@ let nextQuestion = _ =>{
     //append
     document.getElementById('question').append(question)
 }
+
 //endScreen
 let endScreen = _ =>{
     clearInterval(timer) //stop timer
@@ -78,14 +77,17 @@ let endScreen = _ =>{
     `
     document.getElementById('endscreen').append(end) //append endscreen
 }
-//showScores
+
+//show scores
 let showScores = _ =>{
     document.getElementById('question').innerHTML = '' //reset question section
     document.getElementById('endscreen').innerHTML = '' //reset end section
     //display score table, retrieve from  local memory
+    let scores = JSON.parse(localStorage.getItem('scores')) || []
 }
-//sortScores
-let sortScores(a, b){
+
+//sort scores in array
+let sortScores = (a, b) => {
     if(a[1] === b[1]){
         return 0; //score equal
     }else{
@@ -96,7 +98,8 @@ let sortScores(a, b){
         }
     }
 }
-//submitScores
+
+//submit scores
 let submitScores = _ =>{
     let initials = document.getElementById('initials').value
     //define scores array from local storage, if it doesnt exist then create empty array
@@ -110,7 +113,6 @@ let submitScores = _ =>{
     console.log(scores) // log log log
     localStorage.setItem('scores', JSON.stringify(scores))
 }
-
 //start quiz
 document.getElementById('letsgo').addEventListener('click', _ => {
     document.getElementById('letsgo').remove()
@@ -143,8 +145,7 @@ document.addEventListener('click', event =>{
         }else{
             endScreen()
         }
-    }
-    
+    }  
 })
 //listen for highscores
 document.getElementById('highscore-btn').addEventListener('click', _ => {
@@ -153,8 +154,11 @@ document.getElementById('highscore-btn').addEventListener('click', _ => {
     showScores()
 })
 //listen for score submition
-document.getElementById('submit').addEventListener('click', _ => {
-    //display scoreboard
-    submitScores()
-    showScores()
+document.addEventListener('click', event =>{
+    event.preventDefault()
+    if(event.target.id === 'submit'){
+        //display scoreboard
+        submitScores()
+        showScores()
+    }
 })
