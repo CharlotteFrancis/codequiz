@@ -26,3 +26,13 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+
+The following images demonstrates the application functionality:
+Launch Screen:
+![launch screen](./Assets/Screenshots/Launch-Screen.png)
+Quiz Screen:
+![quiz screen](./Assets/Screenshots/Mid-Quiz.png)
+End Screen:
+![end screen](./Assets/Screenshots/End-Screen.png)
+Highscore table Screen
+![highscores screen](./Assets/Screenshots/Highscores-Screen.png)
